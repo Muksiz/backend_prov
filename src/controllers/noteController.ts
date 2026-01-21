@@ -73,6 +73,7 @@ class NoteController {
                 note: { title: cleanedTitle, body: cleanedBody },
                 error: "Both title and body are required.",
             });
+            
             return;
         }
 
@@ -154,6 +155,7 @@ class NoteController {
                 note: existing ?? { title, body: cleanedBody },
                 error: "Body is required.",
             });
+            
             return;
         }
 
