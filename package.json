@@ -1,0 +1,20 @@
+{
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch --include \"src/views/**/*.hbs\" --include \"src/public/**/*.css\" src/main.ts",
+        "build": "tsc && copyfiles -u 1 src/public/**/* src/views/* src/views/**/* src/data/**/* dist/",
+        "build:run": "pnpm run build && node dist/main.js"
+    },
+    "dependencies": {
+        "express": "^5.2.1",
+        "express-handlebars": "^8.0.4"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.6",
+        "@types/express-handlebars": "^5.3.1",
+        "@types/node": "^25.0.9",
+        "copyfiles": "^2.4.1",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
+    }
+}

@@ -1,0 +1,65 @@
+/* ========================================
+   Jani’s TypeScript Compiler Configuration
+   ======================================== */
+{
+    "compilerOptions": {
+        /* ==========================
+           Project structure & output
+           ========================== */
+        "rootDir": "./src", // Folder containing the TypeScript source files
+        "outDir": "./dist", // Folder where compiled JavaScript is written
+
+        /* ==============================
+           Module system & runtime target
+           ============================== */
+        "module": "nodenext", // Use Node.js ESM/CommonJS rules
+        "moduleResolution": "nodenext", // Find imports the same way Node.js does
+        "target": "esnext", // Emit the latest ECMAScript syntax
+        "lib": ["esnext"], // Include type definitions for the latest JavaScript features
+        "types": ["node"], // Provide Node.js globals and types
+
+        /* =============
+           Emit behavior
+           ============= */
+        "sourceMap": false, // Do not generate source map files
+        "declaration": false, // Do not generate type definition files
+        "declarationMap": false, // Do not generate maps for type definitions
+        "removeComments": true, // Remove comments from output files
+        "noEmitOnError": true, // Do not write any output files if there are TypeScript errors
+
+        /* =================
+           Build performance
+           ================= */
+        "incremental": true, // Reuse build cache; still checks dependents
+        "tsBuildInfoFile": "./dist/.tsbuildinfo", // Cache file for faster rebuilds
+
+        /* ====================================
+           Type safety & correctness guarantees
+           ==================================== */
+        "noUncheckedIndexedAccess": true, // Treat missing array or object keys as undefined
+        "exactOptionalPropertyTypes": true, // Optional properties must be truly optional
+        "allowUnreachableCode": false, // Error on code that can never run
+        "allowUnusedLabels": false, // Error on unused labels
+        "noImplicitReturns": true, // Require return statements on all code paths
+        "noImplicitOverride": true, // Require override keyword for class overrides
+        "noUnusedLocals": true, // Error on unused local variables
+        "noUnusedParameters": true, // Error on unused function parameters
+        "noFallthroughCasesInSwitch": true, // Prevent fallthrough in switch cases
+        "noPropertyAccessFromIndexSignature": true, // Require [] access for index-based objects
+
+        /* ======================================
+           Compiler guarantees & module semantics
+           ====================================== */
+        "strict": true, // Enable all strict type checks
+        "verbatimModuleSyntax": true, // Keep import and export statements exactly as written
+        "isolatedModules": true, // Ensure each file can compile on its own
+        "noUncheckedSideEffectImports": true, // Warn when an import runs code but imports no values
+        "moduleDetection": "force", // Treat all files as modules, even without imports
+        "skipLibCheck": true, // Skip type checking on dependency types
+
+        /* ==========================
+           Cross-platform consistency
+           ========================== */
+        "forceConsistentCasingInFileNames": true // Require the same file name casing everywhere
+    }
+}
