@@ -21,20 +21,6 @@ interface CalculatorFormBody {
     batteryType?: string;
 }
 
-// View model for the create/edit form template
-interface FormOptions {
-    mode: "Add" | "Edit";
-    action: string;
-    calculator?: Calculator | null;
-    values?: {
-        oid: string;
-        manufacturer: string;
-        grade: string;
-        batteryType: string;
-    };
-    error?: string;
-}
-
 // Controller responsible for rendering and handling calculator CRUD operations
 class CalculatorController {
     // Validation limits for calculator fields
@@ -383,7 +369,18 @@ class CalculatorController {
     // Render the calculator form with resolved values and view options
     private renderForm(
         res: Parameters<RequestHandler>[1],
-        options: FormOptions,
+        options: {
+            mode: "Add" | "Edit";
+            action: string;
+            calculator?: Calculator | null;
+            values?: {
+                oid: string;
+                manufacturer: string;
+                grade: string;
+                batteryType: string;
+            };
+            error?: string;
+        },
     ): void {
         // Default empty values for the create form
         let values = {
