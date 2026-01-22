@@ -1,26 +1,19 @@
+/*
+ * main.ts is the application entry point. In many
+ * languages (especially compiled ones), a main()
+ * function defines where program execution begins.
+ */
+
 import { server } from "./express.js";
-import { setUsers } from "./middleware/auth.js";
-import type { UserRecord } from "./middleware/auth.js";
 
 // Application entry point
 function main(): void {
-    // TCP port the HTTP server will bind to
-    // === TypeScript types in use ===
+    // TCP port on which the HTTP server will listen
     const port: number = 5000;
 
-    // Static user record used for authentication
-    // === const with object literal key/value pairs ===
-    const users: UserRecord = {
-        email: "dev@dev",
-        password: "devdev",
-    };
-
-    // Register authentication users before starting the server
-    setUsers(users);
-
-    // Initialize and start the Express server
+    // Start the Express server
     server(port);
 }
 
-// Invoke the application entry function
+// Invoke the application entry point
 main();

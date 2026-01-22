@@ -1,0 +1,40 @@
+<h1>Calculators</h1>
+<p><a href="/calculators/create">Add a new calculator</a></p>
+
+{{#if hasCalculators}}
+    <table class="calculators-table">
+        <thead>
+            <tr>
+                <th>Oid</th>
+                <th>Manufacturer</th>
+                <th>Grade</th>
+                <th>Battery Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each calculators}}
+                <tr>
+                    <td>{{this.oid}}</td>
+                    <td>{{this.manufacturer}}</td>
+                    <td>{{this.grade}}</td>
+                    <td>{{this.batteryType}}</td>
+                    <td>
+                        <a
+                            href="/calculators/edit/{{this.encodedTitle}}"
+                        >Edit</a>
+                        <form
+                            method="POST"
+                            action="/calculators/delete/{{this.encodedTitle}}"
+                            onsubmit="return confirm('Delete this calculator?');"
+                        >
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>No calculators yet. Add one.</p>
+{{/if}}

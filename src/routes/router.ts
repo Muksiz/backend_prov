@@ -1,16 +1,18 @@
 import { Router } from "express";
-import { homeRouter } from "./homeRouter.js";
-import { notesRouter } from "./notesRouter.js";
+import { calculatorsRouter } from "./calculatorsRouter.js";
 
 // Create and configure the root router
 function rootRouter(): Router {
     // Create a new Express router instance
-    const router = Router();
+    const router: Router = Router();
+
+    // Send the root page to the calculators index
+    router.get("/", (_req, res) => {
+        res.redirect("/calculators");
+    });
 
     // Mount feature routers under their respective base paths
-    // === routing and the request -> router -> controller flow ===
-    router.use("/", homeRouter());
-    router.use("/notes", notesRouter());
+    router.use("/calculators", calculatorsRouter());
 
     // Return the configured router
     return router;
